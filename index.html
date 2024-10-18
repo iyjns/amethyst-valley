@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/flowerlogo.ico"
+        type="image/x-icon" />
+    <title>Amethyst The Valley of Flora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+        :root {
+            --black: #333;
+            --white: #fff;
+            --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+            --mauve: #E0B0FF;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: .2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 20rem;
+            scroll-behavior: smooth;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        html::-webkit-scrollbar {
+            width: .8rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: #000000;
+            border-radius: .5rem;
+        }
+
+        section {
+            padding: 5rem 7%;
+        }
+
+        .heading {
+            font-size: 4rem;
+            color: #9966cc;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bolder;
+            margin-bottom: 3rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--amethyst);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 10%;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: #000000;
+        }
+
+        .header .logo i {
+            color: var(--primary);
+            padding-right: .10rem;
+        }
+
+        .header .navbar a {
+            font-size: 1.7rem;
+            color: #50246c;
+            font-weight: bolder;
+            margin: 0 1rem;
+        }
+
+        .header .navbar a:hover {
+            color: var(--primary);
+        }
+
+        .header .navbar .btn {
+            margin-top: 0;
+            color: var(--white);
+        }
+
+        .header .navbar .btn:hover {
+            color: var(--white);
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            vertical-align: middle;
+        }
+
+        #menu-btn {
+            display: none;
+            font-size: 2.5rem;
+            margin-left: 1.7rem;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        #menu-btn:hover {
+            color: var(--primary);
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            background: #fff;
+            perspective: 1px;
+            transform-style: preserve-3d;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .section1 {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .section2 {
+            background: rgba(0, 0, 0, 0);
+            width: 100%;
+            min-height: 110vh;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .section1::before {
+            content: "";
+            width: 100%;
+            height: 25.5%;
+            padding: 70px;
+            overflow-x: hidden;
+            position: absolute;
+            min-height: 10vh;
+            background: url("https://github.com/LANSU23/image/blob/main/purpvalley.jpg?raw=true") top center;
+            background-attachment: fixed;
+            background-size: cover;
+            transform: translateZ(-1px) scale(2.2);
+            filter: blur(2px);
+        }
+
+        .section1::after {
+            content: "";
+            width: 100%;
+            height: 127%;
+            position: absolute;
+            background: url("https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/forpurpvalley.png") top center;
+            background-size: cover;
+        }
+
+        .section1 .text {
+            top: 10%;
+            transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-33%, 10%);
+            text-align: center;
+        }
+
+        .section2 .text {
+            top: 48%;
+            transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-33%, 10%);
+            text-align: center;
+            color: #111;
+        }
+
+        .text {
+            top: 100%;
+            left: 50%;
+            position: absolute;
+            font-family: 'Helvetica Neue LT Pro Thin';
+            font-size: 4vw;
+            color: #fff;
+            text-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3),
+                5px 5px 70px rgba(255, 255, 255, 0.5);
+            transform: scale(1, 1.1) translate(-50%, 10%);
+        }
+
+        .about .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .about .row .image {
+            flex: 1 1 30rem;
+        }
+
+        .about .row .image img {
+            width: 100%;
+        }
+
+        .about .row .content {
+            flex: 1 1 38rem;
+        }
+
+        .about .row .content h3 {
+            font-size: 3.5rem;
+            color: #9966cc;
+            padding: 2rem 0;
+        }
+
+        .about .row .content p {
+            font-size: 1.6rem;
+            color: #666;
+            padding: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .flora .slide {
+            background: var(--white);
+            border: .1rem solid rgba(0, 0, 0, 0.2);
+            border-radius: .5rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 4rem;
+        }
+
+        .flora .slide .image {
+            height: 25rem;
+            width: 100%;
+            padding: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .flora .slide .image img {
+            width: 100%;
+            height: 100%;
+            border-radius: .5rem;
+            object-fit: cover;
+        }
+
+        .flora .slide .image .visit {
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            background: var(--black);
+            color: var(--white);
+            font-size: 1.7rem;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+            text-transform: lowercase;
+        }
+
+        .flora .slide .content {
+            padding: 2rem;
+            padding-top: 0;
+        }
+
+        .flora .slide .content h3 {
+            font-size: 2.5rem;
+            color: #9966cc;
+        }
+
+        .flora .slide .content p {
+            font-size: 1.6rem;
+            color: #666;
+            padding: .5rem 0;
+            line-height: 1.5;
+        }
+
+        .flora .slide .content .stars {
+            padding: 1rem 0;
+        }
+
+        .flora .slide .content .stars i {
+            font-size: 1.7rem;
+            color: var(--primary);
+        }
+
+        .services .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: 2rem;
+        }
+
+        .services .box-container .box {
+            text-align: center;
+        }
+
+        .services .box-container .box img {
+            height: 15rem;
+            margin-bottom: .7rem;
+        }
+
+        .services .box-container .box h3 {
+            font-size: 1.7rem;
+            color: #000000;
+            padding: .5rem 0;
+        }
+
+        .gallery .slide {
+            height: 30rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery .slide img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .gallery .slide .icon {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery .slide .icon i {
+            font-size: 6rem;
+            color: var(--black);
+        }
+
+        .gallery .slide:hover .icon {
+            display: flex;
+        }
+
+        .footer {
+            background: var(--black);
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2.2rem;
+            padding: 1rem 0;
+            color: #9966cc;
+        }
+
+        .footer .box-container .box a {
+            font-size: 1.6rem;
+            display: block;
+            color: var(--white);
+            padding: 1rem 0;
+        }
+
+        .footer .box-container .box a i {
+            color: #9966cc;
+            padding-right: .5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #9966cc;
+        }
+
+        .footer .share {
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer .share a {
+            color: #9966cc;
+            font-size: 2rem;
+            width: 5rem;
+            height: 5rem;
+            line-height: 5rem;
+            border-radius: 50%;
+            border: .1rem solid #9966cc;
+            margin: .3rem;
+        }
+
+        .footer .share a:hover {
+            color: #9966cc;
+            background: #9966cc;
+            transform: rotate(360deg);
+        }
+
+        .footer .credit {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: .1rem solid rgba(0, 0, 0, 0.3);
+            color: var(--white);
+        }
+
+        .footer .credit span {
+            color: #9966cc;
+        }
+
+        @media (max-width:991px) {
+
+            html {
+                font-size: 55%;
+            }
+
+            .header {
+                padding: 2rem 3rem;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            #menu-btn {
+                display: inline-block;
+            }
+
+            .header .navbar {
+                position: absolute;
+                top: 110%;
+                right: -110%;
+                width: 30rem;
+                box-shadow: var(--box-shadow);
+                background: var(--mauve);
+                border-radius: .5rem;
+            }
+
+            .header .navbar.active {
+                right: 2rem;
+                transition: .4s linear;
+            }
+
+            .header .navbar a {
+                font-size: 2rem;
+                margin: 2rem 2.5rem;
+                display: block;
+            }
+
+            .home .slide .content {
+                width: 50rem;
+            }
+
+            .review .review-slider {
+                width: 100%;
+                padding: 1rem;
+                padding-top: 15%;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+
+            html {
+                font-size: 50%;
+            }
+
+            .home .slide .content {
+                width: 30rem;
+            }
+
+            .home .slide .content h3 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="about" class="logo">
+            <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/logo-removebg-preview.png"
+                alt="Amethyst Logo">
+            Amethyst: The Valley of Flora
+        </a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#flora">flora</a>
+            <a href="#gallery">gallery</a>
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+    </header>
+
+    <div class="section1">
+        <div class="text">AMETHYST WORLD OF FLOWERS <br> EXIST</div>
+    </div>
+    <div class="section2">
+        <div class="text">WELCOME EVERYONE</div>
+    </div>
+
+    <section class="about" id="about">
+
+        <div class="row">
+
+            <div class="image">
+                <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/priya.jpg" alt="">
+            </div>
+
+            <div class="content">
+                <h3>ABOUT</h3>
+                <p>Priya Jeanelle the owner of the Amethyst Valley of Flowers has devoted her life in the world of
+                    purple since she was a child, she also loves flowers and butterflies that is why she created this
+                    fascinating point of view where customers can feel loved by purple touch too.</p>
+                <p> I HOPE YOU CAN VISIT MY VALLEY </p>
+                <p>"Blossoming Success: Cultivating Prosperity in the Valley of Flowers 🌸🌿 #BusinessBlooms
+                    #ValleyVentures"</p>
+                <p>Absolutely! Flowers don't just add beauty; they bring a bouquet of benefits. They can boost mood,
+                    reduce stress, and even enhance productivity. It's like nature's way of saying, "Here, have some
+                    petals of positivity!" 🌼😊</p>
+                <p>"Blooms of Prosperity: Where Business and Nature Flourish Together 🌼🌱 Embrace the Benefits of
+                    Growth in the Valley of Flowers! #BusinessInBloom #NatureAndSuccess"</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="flora" id="flora">
+
+        <h1 class="heading">Flora - Flowers</h1>
+
+        <div class="swiper room-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <span class="visit">visit</span>
+                        <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/bell.jpg"
+                            alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Bell Flower Valley</h3>
+                        <p>Campanula (Bellflower) This is a genus of flowering plants that includes many different
+                            species commonly known as bellflowers. These plants are characterized by their bell-shaped
+                            flowers, and they can be annuals, biennials, or perennials. The flowers come in various
+                            colors, and they are often used in gardens for their aesthetic appeal.</p>
+                        <div class="stars">
+                            <i class="fa fa-chevron-right"> Contact </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <span class="visit">visit</span>
+                        <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/verbena.jpg"
+                            alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Verbena Valley</h3>
+                        <p>Verbena refers to a genus of flowering plants that includes many different species, commonly
+                            known as verbenas or vervains. These plants are often cultivated for their attractive,
+                            colorful flowers and are popular in gardens and landscapes.</p>
+                        <div class="stars">
+                            <i class="fa fa-chevron-right"> Contact </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <span class="visit">visit</span>
+                        <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/clematis.png"
+                            alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Clematis Valley</h3>
+                        <p>Clematis is a genus of flowering plants that includes a diverse group of over 300 species and
+                            numerous cultivars. These plants are known for their attractive and often showy flowers.</p>
+                        <div class="stars">
+                            <i class="fa fa-chevron-right"> Contact </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <span class="visit">visit</span>
+                        <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/france.jpg"
+                            alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Iris Valley</h3>
+                        <p>Irises are a group of flowering plants that belong to the genus Iris, which is part of the
+                            Iridaceae family. These plants are known for their distinctive, showy flowers and come in a
+                            variety of colors and sizes.</p>
+                        <div class="stars">
+                            <i class="fa fa-chevron-right"> Contact </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <span class="visit">visit</span>
+                        <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/lavander.jpg"
+                            alt="">
+                    </div>
+                    <div class="content">
+                        <h3>Lavander Valley</h3>
+                        <p>Lavender refers to a group of aromatic plants belonging to the genus Lavandula. These plants
+                            are known for their fragrant flowers and are widely cultivated for various purposes,
+                            including ornamental gardening, culinary uses, and the production of essential oils.</p>
+                        <div class="stars">
+                            <i class="fa fa-chevron-right"> Contact </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </section>
+    <section class="services">
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/bike.jpg" alt="">
+                <h3>Bike Activities</h3>
+            </div>
+
+            <div class="box">
+                <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/valley%20restau.jpg"
+                    alt="">
+                <h3>Restaurant</h3>
+            </div>
+
+            <div class="box">
+                <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/golf.jpeg" alt="">
+                <h3>Golf</h3>
+            </div>
+
+            <div class="box">
+                <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/comfort.jpg" alt="">
+                <h3>Comfort Room</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+
+        <h1 class="heading">the gallery</h1>
+
+        <div class="swiper gallery-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/lavander.jpg"
+                        alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/bell.jpg" alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/verbena.jpg"
+                        alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/clematis.png"
+                        alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/valley.jfif"
+                        alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="https://raw.githubusercontent.com/iyjns/amethyst-valley/refs/heads/main/Amethyst_Pictures/france.jpg"
+                        alt="">
+                    <div class="icon">
+                        <i class="fas fa-magnifying-glass-plus"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +63 967 314 5709 </a>
+                <a href="#"> <i class="fas fa-phone"></i> 0437410395</a>
+                <a href="#"> <i class="fas fa-envelope"></i> priya.jeanelle.espedido@gmail.com</a>
+                <a href="#"> <i class="fas fa-map"></i> Manila, Philippines</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home"> <i class="fas fa-arrow-right"></i>home</a>
+                <a href="#about"> <i class="fas fa-arrow-right"></i>about</a>
+                <a href="#flora"> <i class="fas fa-arrow-right"></i>flora</a>
+                <a href="#gallery"> <i class="fas fa-arrow-right"></i>gallery</a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="https://www.britannica.com/plant/bellflower-plant"> <i class="fas fa-arrow-right"></i> Bell
+                    Flower Valley</a>
+                <a href="https://www.britannica.com/plant/verbena-plant"> <i class="fas fa-arrow-right"></i> Verbena
+                    Valley</a>
+                <a href="https://www.britannica.com/plant/Iris-plant-genus"> <i class="fas fa-arrow-right"></i> Iris
+                    Valley</a>
+                <a href="https://www.britannica.com/plant/lavender"> <i class="fas fa-arrow-right"></i> Lavander
+                    Valley</a>
+                <a href="https://www.britannica.com/plant/larkspur-plant"> <i class="fas fa-arrow-right"></i> Clematis
+                    Valley</a>
+            </div>
+
+        </div>
+
+        <div class="share">
+            <a href="https://www.facebook.com/priyajeanelle.e/" class="fab fa-facebook-f"></a>
+            <a href="https://www.instagram.com/iyjna_/" class="fab fa-instagram"></a>
+            <a href="https://twitter.com/" class="fab fa-twitter"></a>
+            <a href="https://www.linkedin.com/in/priya-jeanelle-espedido-317a9b209/" class="fab fa-linkedin"></a>
+        </div>
+
+        <div class="credit">&copy; copyright @ 2023 by <span>priyacutie</span></div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script src="script-Copy.html"></script>
+
+</body>
+<script>
+
+    let menu = document.querySelector('#menu-btn');
+    let navbar = document.querySelector('.header .navbar');
+
+    menu.onclick = () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('active');
+    }
+
+    var swiper = new Swiper(".home-slider", {
+        grabCursor: true,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    var swiper = new Swiper(".room-slider",
+        {
+            spaceBetween: 20,
+            grabCursor: true,
+            loop: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 7500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            }, breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                991: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+    var swiper = new Swiper(".gallery-slider", {
+        spaceBetween: 10,
+        grabCursor: true,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 1500,
+            disableOnInteraction: false,
+        },
+
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }, breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            991: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    var swiper = new Swiper(".review-slider", {
+        spaceBetween: 10,
+        grabCursor: true,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+        }, pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    let accordions = document.querySelectorAll('.faqs .row .content .box');
+    accordions.forEach(acco => {
+        acco.onclick = () => {
+            accordions.forEach(subAcco => { subAcco.classList.remove('active') });
+            acco.classList.add('active');
+        }
+    })
+
+</script>
+
+</html>
